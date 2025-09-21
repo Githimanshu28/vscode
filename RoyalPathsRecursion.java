@@ -1,47 +1,41 @@
 import java.util.Scanner;
 
 public class RoyalPathsRecursion {
-    static long sumMain = 0;
-    static long sumSecondary = 0;
-
-    
-    static void process(int[][] matrix, int i, int j, int N) {
-        
-        if (i == N) return;
-        
-        if (i == j) {
-            sumMain += matrix[i][j];
-        }
-        if (i + j == N - 1) {
-            sumSecondary += matrix[i][j];
-        }
-
-        
-        if (j < N - 1) {
-            process(matrix, i, j + 1, N);
-        } else {  
-            process(matrix, i + 1, 0, N);
-        }
-    }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        int N = sc.nextInt();
-        int[][] matrix = new int[N][N];
+        Scanner scanner = new Scanner(System.in);
 
         
+        System.out.println("Enter the size of the chessboard (N):");
+        int N = scanner.nextInt();
+
+        
+        int[][] matrix = new int[N][N];
+
+    
+        System.out.println("Enter the elements of the matrix (row by row):");
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                matrix[i][j] = sc.nextInt();
+                matrix[i][j] = scanner.nextInt();
             }
         }
 
-        
-        process(matrix, 0, 0, N);
+        int sumMainDiagonal = 0;
+        int sumSecondaryDiagonal = 0;
 
-        System.out.println(sumMain + " " + sumSecondary);
-        sc.close();
+        
+        for (int i = 0; i < N; i++) {
+            
+            sumMainDiagonal += matrix[i][i];
+
+            
+            sumSecondaryDiagonal += matrix[i][N - 1 - i];
+        }
+
+        
+        System.out.println("Sum of the main diagonal: " + sumMainDiagonal);
+        System.out.println("Sum of the secondary diagonal: " + sumSecondaryDiagonal);
+
+        scanner.close();
     }
 }
-
