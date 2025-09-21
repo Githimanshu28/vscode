@@ -12,11 +12,11 @@ public class DeleteArray {
             arr[i] = sc.nextInt();
         }
 
-        // Delete first element by shifting elements left
+        
         for (int i = 0; i < n - 1; i++) {
             arr[i] = arr[i + 1];
         }
-        n--; // reduce size
+        n--; 
 
         System.out.println("After deleting first element:");
         for (int i = 0; i < n; i++) {
@@ -24,5 +24,6 @@ public class DeleteArray {
         }
     }
 }
+
 
 
