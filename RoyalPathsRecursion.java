@@ -30,7 +30,7 @@ public class RoyalPathsRecursion {
         int N = sc.nextInt();
         int[][] matrix = new int[N][N];
 
-        // Input matrix
+        
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 matrix[i][j] = sc.nextInt();
@@ -44,3 +44,4 @@ public class RoyalPathsRecursion {
         sc.close();
     }
 }
+
